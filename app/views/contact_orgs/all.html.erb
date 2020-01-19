@@ -1,0 +1,66 @@
+
+<section class="engine"></section><section class="section-table cid-rMDAfrvZ6f" id="table1-9">
+
+  
+  
+  <div class="container container-table">
+      <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
+          Contact list</h2>
+      
+      <div class="table-wrapper">
+        <div class="container">
+          <div class="row search">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="dataTables_filter">
+                  <label class="searchInfo mbr-fonts-style display-7">Search:</label>
+                  <input class="form-control input-sm" disabled="">
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container scroll">
+          <table class="table isSearch" cellspacing="0">
+            <thead>
+              <tr class="table-heads ">
+                 
+                  
+                  
+                  
+              <th class="head-item mbr-fonts-style display-7">NAME OF ORGANIZATION</th>
+              <th class="head-item mbr-fonts-style display-7">EMAIL</th>
+              <th class="head-item mbr-fonts-style display-7"> PHONE NUMBER</th>
+              <th class="head-item mbr-fonts-style display-7">DESCRIPTION</th>
+              <th class="head-item mbr-fonts-style display-7">SHOW</th>
+              <th class="head-item mbr-fonts-style display-7"> EDIT</th>
+              <th class="head-item mbr-fonts-style display-7"> DELETE</th>
+            </tr>
+            </thead>
+
+            
+              <tbody>
+                <% @contact_orgs.each do |contact_org| %>
+            
+   
+              
+            <tr>                
+                
+                
+                
+              <td class="body-item mbr-fonts-style display-7"><%= contact_org.organization_name %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= contact_org.email %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= contact_org.p_number %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= contact_org.brief_description %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= link_to 'Show', contact_org_path(:id => contact_org.id) %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= link_to 'Edit', edit_contact_org_path(:id => contact_org.id) %></td>
+              <td class="body-item mbr-fonts-style display-7"><%= link_to 'Destroy', contact_org_path(:id => contact_org.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+                <% end %> 
+               </tbody>
+          </table>
+        </div>
+         
+      </div>
+    </div>
+</section>

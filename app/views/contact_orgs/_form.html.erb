@@ -1,0 +1,53 @@
+ 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
+                 
+                <%=  form_for @contact_org,:url =>{:action => "update", :id =>@contact_org.id} ,:class=>"mbr-form form-with-styler" do |form| %>
+                  <% if contact_org.errors.any? %>
+                     <div id="error_explanation">
+                         <h2><%= pluralize(contact_org.errors.count, "error") %> prohibited this contact_org from being saved:</h2>
+
+                          <ul>
+                             <% contact_org.errors.full_messages.each do |message| %>
+                             <li><%= message %></li>
+                             <% end %>
+                          </ul>
+                     </div>
+                   <% end %>
+                   <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md-4  form-group" data-for="name">
+                          <%= form.label :organization_name ,:for=>"name-form1-7" ,:class=>"form-control-label mbr-fonts-style display-7"%> 
+                          <%= form.text_field :organization_name , :type=>"text" ,:required=>"required" , :class=>"form-control display-7" , :id=>"name-form1-7" %>
+                             
+                        </div>
+                        <div class="col-md-4  form-group" data-for="email">
+                          <%= form.label :email ,:for=>"email-form1-7" ,:class=>"form-control-label mbr-fonts-style display-7"%> 
+                            <%= form.text_field :email, :type=>"email",   :data_form_field=>"Email" ,:required=>"required", :class=>"form-control display-7" ,:id=>"email-form1-7" %>
+                             
+                        </div>
+                        <div  class="col-md-4  form-group">
+                            <%= form.label :p_number, :for=>"phone-form1-7" ,:class=>"form-control-label mbr-fonts-style display-7" %>
+                            <%= form.text_field :p_number,:type=>"tel",  :class=>"form-control display-7" , :id=>"phone-form1-7" %>
+                            
+                        </div>
+                        <div data-for="message" class="col-md-12 form-group">
+                          <%= form.label :brief_description, :for=>"message-form1-7" ,:class=>"form-control-label mbr-fonts-style display-7" %>
+                            <%= form.text_area :brief_description,:class=>"form-control display-7",:id=>"message-form1-7"%>
+                             
+                        </div>
+                       
+                        <div class="actions col-md-12 input-group-btn align-center">
+                           <%= form.submit :class=>"btn btn-primary btn-form display-4",:value=>"Submit" %>
+                         </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
